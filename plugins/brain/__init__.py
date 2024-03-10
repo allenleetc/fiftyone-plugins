@@ -626,7 +626,6 @@ class SortBySimilarity(foo.Operator):
             dynamic=True,
         )
 
-    """
     def resolve_placement(self, ctx):
         if ctx.selected:
             label = "Sort by image similarity"
@@ -639,7 +638,6 @@ class SortBySimilarity(foo.Operator):
             types.Places.SAMPLES_GRID_ACTIONS,
             types.Button(label=label, icon=icon),
         )
-    """
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -1480,6 +1478,9 @@ def get_target_view(ctx, inputs, allow_selected=True):
                 description="Process only the selected samples",
             )
             default_target = "SELECTED_SAMPLES"
+
+        # alter default target
+        default_target = "DATASET"
 
         inputs.enum(
             "target",
